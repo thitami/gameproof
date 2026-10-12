@@ -1,0 +1,6 @@
+[project]
+name = "gameproof"
+version = "0.1.0"
+description = "Measure how easily RL environment verifiers can be gamed, and harden them."
+requires-python = ">=3.10"
+dependencies = ["pytest>=8"]

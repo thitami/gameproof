@@ -1,0 +1,94 @@
+{
+  "cases": [
+    {
+      "name": "test_empty_string",
+      "function": "parse_query",
+      "args": "['']",
+      "expected": "{}"
+    },
+    {
+      "name": "test_empty_pairs_skipped",
+      "function": "parse_query",
+      "args": "['&x=1&&y=2&']",
+      "expected": "{'x': '1', 'y': '2'}"
+    },
+    {
+      "name": "test_key_without_equals_gets_empty_value",
+      "function": "parse_query",
+      "args": "['flag&z=3']",
+      "expected": "{'flag': '', 'z': '3'}"
+    },
+    {
+      "name": "test_empty_key",
+      "function": "parse_query",
+      "args": "['=v']",
+      "expected": "{'': 'v'}"
+    },
+    {
+      "name": "test_only_first_equals_splits",
+      "function": "parse_query",
+      "args": "['eq=b=c']",
+      "expected": "{'eq': 'b=c'}"
+    },
+    {
+      "name": "test_last_duplicate_wins",
+      "function": "parse_query",
+      "args": "['k=first&k=second']",
+      "expected": "{'k': 'second'}"
+    },
+    {
+      "name": "test_plus_is_space_in_keys_and_values",
+      "function": "parse_query",
+      "args": "['full+name=Ada+Lovelace']",
+      "expected": "{'full name': 'Ada Lovelace'}"
+    },
+    {
+      "name": "test_encoded_plus_stays_plus",
+      "function": "parse_query",
+      "args": "['sum=1%2B1']",
+      "expected": "{'sum': '1+1'}"
+    },
+    {
+      "name": "test_decoding_happens_after_splitting",
+      "function": "parse_query",
+      "args": "['a%3Db=x%26y']",
+      "expected": "{'a=b': 'x&y'}"
+    },
+    {
+      "name": "test_lowercase_hex",
+      "function": "parse_query",
+      "args": "['p=%2f']",
+      "expected": "{'p': '/'}"
+    },
+    {
+      "name": "test_invalid_escape_kept_literally",
+      "function": "parse_query",
+      "args": "['bad=%zz']",
+      "expected": "{'bad': '%zz'}"
+    },
+    {
+      "name": "test_truncated_escape_kept_literally",
+      "function": "parse_query",
+      "args": "['t=%4']",
+      "expected": "{'t': '%4'}"
+    },
+    {
+      "name": "test_escape_at_very_end_is_decoded",
+      "function": "parse_query",
+      "args": "['e=%21']",
+      "expected": "{'e': '!'}"
+    },
+    {
+      "name": "test_bytes_decoded_one_char_each_not_utf8",
+      "function": "parse_query",
+      "args": "['cafe=%C3%A9']",
+      "expected": "{'cafe': 'Ã©'}"
+    },
+    {
+      "name": "test_escape_with_sign_goes_through_int",
+      "function": "parse_query",
+      "args": "['s=%+1&n=%-1']",
+      "expected": "{'s': '\\x01', 'n': '%-1'}"
+    }
+  ]
+}

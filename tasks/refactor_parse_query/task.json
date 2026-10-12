@@ -1,0 +1,6 @@
+{
+  "name": "refactor_parse_query",
+  "description": "Remove the triplicated decoding logic from a query-string parser while preserving its exact behaviour",
+  "source_files": ["src/urlparse.py"],
+  "visible_tests": ["tests/test_urlparse.py"]
+}

@@ -1,0 +1,41 @@
+{
+  "cases": [
+    {
+      "name": "test_two_values",
+      "function": "median",
+      "args": "[[5, 1]]",
+      "expected": "3.0"
+    },
+    {
+      "name": "test_single_value",
+      "function": "median",
+      "args": "[[7]]",
+      "expected": "7"
+    },
+    {
+      "name": "test_longer_even",
+      "function": "median",
+      "args": "[[10, 2, 8, 4, 6, 1]]",
+      "expected": "5.0"
+    },
+    {
+      "name": "test_negative_and_float",
+      "function": "median",
+      "args": "[[-1.5, 0.5, 2.0]]",
+      "expected": "0.5"
+    },
+    {
+      "name": "test_does_not_mutate_input",
+      "function": "median",
+      "args": "[[3, 1, 2]]",
+      "expected": "2",
+      "args_unchanged": true
+    },
+    {
+      "name": "test_empty_raises",
+      "function": "median",
+      "args": "[[]]",
+      "raises": "ValueError"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "implement_slugify",
+  "description": "Implement a slugify function that converts text to URL-friendly slugs",
+  "source_files": ["src/text.py"],
+  "visible_tests": ["tests/test_text.py"]
+}

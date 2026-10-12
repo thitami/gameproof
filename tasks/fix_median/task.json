@@ -1,0 +1,6 @@
+{
+  "name": "fix_median",
+  "description": "median() returns the wrong result for even-length lists and does not reject empty input. Fix src/stats.py so all tests pass.",
+  "source_files": ["src/stats.py"],
+  "visible_tests": ["tests/test_stats.py"]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "optimize_find_duplicates",
+  "description": "Make an O(n^2) duplicate finder run in O(n) without changing its output",
+  "source_files": ["src/duplicates.py"],
+  "visible_tests": ["tests/test_duplicates.py"]
+}

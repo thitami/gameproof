@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "name": "test_extra_spaces",
+      "function": "slugify",
+      "args": "['Hello   World']",
+      "expected": "'hello-world'"
+    },
+    {
+      "name": "test_accents",
+      "function": "slugify",
+      "args": "['Crème Brûlée']",
+      "expected": "'creme-brulee'"
+    },
+    {
+      "name": "test_existing_hyphens",
+      "function": "slugify",
+      "args": "['Hello-World-Test']",
+      "expected": "'hello-world-test'"
+    },
+    {
+      "name": "test_numbers",
+      "function": "slugify",
+      "args": "['Test 123 Example']",
+      "expected": "'test-123-example'"
+    },
+    {
+      "name": "test_symbols_only",
+      "function": "slugify",
+      "args": "['!!!']",
+      "expected": "''"
+    },
+    {
+      "name": "test_underscores",
+      "function": "slugify",
+      "args": "['snake_case_name']",
+      "expected": "'snake-case-name'"
+    },
+    {
+      "name": "test_leading_and_trailing_punctuation",
+      "function": "slugify",
+      "args": "['  -- Release Notes --  ']",
+      "expected": "'release-notes'"
+    }
+  ]
+}
